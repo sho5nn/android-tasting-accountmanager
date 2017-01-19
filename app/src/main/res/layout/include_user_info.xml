@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data class=".UserInfoBinding">
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="UserInfo"
+            type="com.github.sho5nn.tasting.accountmanager.UserInfoViewModel"
+            />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/userinfo_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp"
+        >
+
+        <TextView
+            android:id="@+id/userinfo_title_text"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:text="User Info"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/userinfo_user_name_title_text"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userinfo_title_text"
+            android:paddingBottom="4dp"
+            android:paddingLeft="16dp"
+            android:text="Name"
+            />
+
+        <TextView
+            android:id="@+id/userinfo_user_name_text"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userinfo_user_name_title_text"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:text="@{UserInfo.name}"
+            tools:text="sample name"
+            />
+
+        <TextView
+            android:id="@+id/userinfo_auth_token_title_text"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userinfo_user_name_text"
+            android:paddingBottom="4dp"
+            android:paddingLeft="16dp"
+            android:text="Auth Token"
+            />
+
+        <TextView
+            android:id="@+id/userinfo_auth_token_text"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userinfo_auth_token_title_text"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:text="@{UserInfo.token}"
+            tools:text="auth123token123"
+            />
+
+        <Button
+            android:id="@+id/userinfo_sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/userinfo_auth_token_text"
+            android:onClick="@{UserInfo.onClickSignInButton}"
+            android:text="signin"
+            />
+
+        <Button
+            android:id="@+id/userinfo_sign_up_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userinfo_auth_token_text"
+            android:layout_toLeftOf="@+id/userinfo_sign_in_button"
+            android:onClick="@{UserInfo.onClickSignUpButton}"
+            android:text="signup"
+            />
+
+    </RelativeLayout>
+
+</layout>

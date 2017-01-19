@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Client2</string>
+    <string-array name="white_hash_list">
+        <item>@string/package_hash_client1</item>
+        <item>@string/package_hash_client2</item>
+        <item>@string/package_hash_client3</item>
+    </string-array>
+</resources>

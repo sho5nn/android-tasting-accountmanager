@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.hugo'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.github.sho5nn.tasting.accountmanager"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    dataBinding {
+        enabled true
+    }
+    signingConfigs {
+        client1 {
+            storeFile file(storeFileClient1)
+            storePassword storePasswordClient1
+            keyAlias keyAliasClient1
+            keyPassword keyPasswordClient1
+        }
+        client2 {
+            storeFile file(storeFileClient2)
+            storePassword storePasswordClient2
+            keyAlias keyAliasClient2
+            keyPassword keyPasswordClient2
+        }
+        client3 {
+            storeFile file(storeFileClient3)
+            storePassword storePasswordClient3
+            keyAlias keyAliasClient3
+            keyPassword keyPasswordClient3
+        }
+        another {
+            storeFile file(storeFileAnother)
+            storePassword storePasswordAnother
+            keyAlias keyAliasAnother
+            keyPassword keyPasswordAnother
+        }
+    }
+    productFlavors {
+        client1 {
+            applicationIdSuffix ".client1"
+            signingConfig signingConfigs.client1
+        }
+        client2 {
+            applicationIdSuffix ".client2"
+            signingConfig signingConfigs.client2
+        }
+        client3 {
+            applicationIdSuffix ".client3"
+            signingConfig signingConfigs.client3
+        }
+        another {
+            applicationIdSuffix ".another"
+            signingConfig signingConfigs.another
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig null
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    compile 'com.github.hotchemi:permissionsdispatcher:2.3.1'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.3.1'
+}

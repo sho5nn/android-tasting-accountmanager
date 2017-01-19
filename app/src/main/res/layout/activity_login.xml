@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data class="com.github.sho5nn.tasting.accountmanager.authenticator.LoginBinding">
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="Login"
+            type="com.github.sho5nn.tasting.accountmanager.authenticator.LoginViewModel"
+            />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/login_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".authenticator.LoginActivity"
+        >
+
+        <RelativeLayout
+            android:id="@+id/login_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/layout_vertical_margin"
+            android:paddingLeft="@dimen/layout_horizontal_margin"
+            android:paddingRight="@dimen/layout_horizontal_margin"
+            android:paddingTop="@dimen/layout_vertical_margin"
+            >
+
+            <TextView
+                android:id="@+id/login_caller_package_title_text"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/login_caller_package_text"
+                android:paddingBottom="4dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp"
+                android:text="caller package"
+                />
+
+            <TextView
+                android:id="@+id/login_caller_package_text"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/login_caller_strict_mode_title_text"
+                android:gravity="center_vertical"
+                android:minHeight="32dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp"
+                android:text="@{Login.callerPackage}"
+                tools:text="com.github.sho5nn.tasting.accountmanager.client1"
+                />
+
+            <TextView
+                android:id="@+id/login_caller_strict_mode_title_text"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/login_strict_mode_text"
+                android:paddingBottom="4dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp"
+                android:text="strict mode"
+                />
+
+            <TextView
+                android:id="@+id/login_strict_mode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/login_name_input_layout"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:minHeight="32dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp"
+                android:text="@{Login.strictMode}"
+                tools:text="false"
+                />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/login_name_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/login_pass_input_layout"
+                >
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/login_name_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="name..."
+                    android:text="@={Login.name}"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/login_pass_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/login_pass_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="pass..."
+                    android:text="@={Login.pass}"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/login_login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/login_pass_input_layout"
+                android:layout_below="@+id/login_pass_input_layout"
+                android:text="login"
+                android:onClick="@{Login::onClickLoginButton}"
+                />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/login_progress_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#22000000"
+            android:visibility="@{Login.loggingIn ? View.VISIBLE : View.GONE}"
+            >
+
+            <ProgressBar
+                android:id="@+id/login_progressbar"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

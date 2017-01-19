@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data class=".AuthenticatorStatusBinding">
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="AuthenticatorStatus"
+            type="com.github.sho5nn.tasting.accountmanager.AuthenticatorStatusViewModel"
+            />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/authenticator_status_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp"
+        >
+
+        <TextView
+            android:id="@+id/authenticator_status_title_text"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:text="Authenticator Status"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/authenticator_status_package_title_text"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/authenticator_status_title_text"
+            android:paddingBottom="4dp"
+            android:paddingLeft="16dp"
+            android:text="Package Name"
+            />
+
+        <TextView
+            android:id="@+id/authenticator_status_package_text"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/authenticator_status_package_title_text"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:text="@{AuthenticatorStatus.authenticatorPackage}"
+            tools:text="com.github.sho5nn.tasting.accountmanager.client1"
+            />
+
+        <TextView
+            android:id="@+id/authenticator_status_account_number_title_text"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/authenticator_status_package_text"
+            android:paddingBottom="4dp"
+            android:paddingLeft="16dp"
+            android:text="Account Number"
+            />
+
+        <TextView
+            android:id="@+id/authenticator_status_account_number_text"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/authenticator_status_account_number_title_text"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:text="@{String.valueOf(AuthenticatorStatus.accountNumber)}"
+            tools:text="1"
+            />
+
+        <TextView
+            android:id="@+id/authenticator_status_account_type_title_text"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/authenticator_status_account_number_text"
+            android:paddingBottom="4dp"
+            android:paddingLeft="16dp"
+            android:text="Account Type"
+            />
+
+        <TextView
+            android:id="@+id/authenticator_status_account_type_text"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/authenticator_status_account_type_title_text"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:text="@{AuthenticatorStatus.accountType}"
+            tools:text="com.github.sho5nn.tasting.accountmanager"
+            />
+
+    </RelativeLayout>
+
+</layout>

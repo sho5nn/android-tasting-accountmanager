@@ -1,0 +1,4 @@
+<resources>
+    <string name="account_type">com.github.sho5nn.tasting.accountmanager</string>
+    <string name="account_name">TastingAccountManager</string>
+</resources>

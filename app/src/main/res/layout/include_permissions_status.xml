@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data class=".PermissionsStatusBinding">
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="PermissionsStatus"
+            type="com.github.sho5nn.tasting.accountmanager.PermissionsStatusViewModel"
+            />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/permission_status_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp"
+        >
+
+        <TextView
+            android:id="@+id/permission_status_title_text"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:text="Permissions Status"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:id="@+id/permission_status_get_accounts_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/permission_status_title_text"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:visibility="@{PermissionsStatus.isRequestedGetAccountsPermission ? View.VISIBLE : View.GONE}"
+            >
+
+            <TextView
+                android:id="@+id/permission_status_get_accounts_text"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="android.permission.GET_ACCOUNTS"
+                />
+
+            <Button
+                android:id="@+id/permission_status_get_accounts_check_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{PermissionsStatus.isGrantedGetAccountsPermission ? false : true}"
+                android:text="@{PermissionsStatus.isGrantedGetAccountsPermission ? `granted` : `check`}"
+                android:onClick="@{PermissionsStatus.onClickCheckGetAccountsPermissionButton}"
+                tools:text="check"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/permission_status_authenticate_accounts_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/permission_status_get_accounts_layout"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:visibility="@{PermissionsStatus.isRequestedAuthenticateAccountsPermission ? View.VISIBLE : View.GONE}"
+            >
+
+            <TextView
+                android:id="@+id/permission_status_authenticate_accounts_text"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="android.permission.AUTHENTICATE_ACCOUNTS"
+                />
+
+            <Button
+                android:id="@+id/permission_status_authenticate_accounts_check_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{PermissionsStatus.isGrantedAuthenticateAccountsPermission ? false : true}"
+                android:text="@{PermissionsStatus.isGrantedAuthenticateAccountsPermission ? `granted` : `check`}"
+                android:onClick="@{PermissionsStatus.onClickCheckAuthenticateAccountsPermissionButton}"
+                tools:text="check"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/permission_status_manage_accounts_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/permission_status_authenticate_accounts_layout"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:visibility="@{PermissionsStatus.isRequestedManageAccountsPermission ? View.VISIBLE : View.GONE}"
+            >
+
+            <TextView
+                android:id="@+id/permission_status_manage_accounts_text"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="android.permission.MANAGE_ACCOUNTS"
+                />
+
+            <Button
+                android:id="@+id/permission_status_manage_accounts_check_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{PermissionsStatus.isGrantedManageAccountsPermission ? false : true}"
+                android:text="@{PermissionsStatus.isGrantedManageAccountsPermission ? `granted` : `check`}"
+                android:onClick="@{PermissionsStatus.onClickCheckManageAccountsPermissionButton}"
+                tools:text="check"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/permission_status_use_credentials_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/permission_status_manage_accounts_layout"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:visibility="@{PermissionsStatus.isRequestedUseCredentialsPermission ? View.VISIBLE : View.GONE}"
+            >
+
+            <TextView
+                android:id="@+id/permission_status_use_credentials_text"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="android.permission.USE_CREDENTIALS"
+                />
+
+            <Button
+                android:id="@+id/permission_status_use_credentials_check_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{PermissionsStatus.isGrantedUseCredentialsPermission ? false : true}"
+                android:text="@{PermissionsStatus.isGrantedUseCredentialsPermission ? `granted` : `check`}"
+                android:onClick="@{PermissionsStatus.onClickCheckUseCredentialsPermissionButton}"
+                tools:text="check"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

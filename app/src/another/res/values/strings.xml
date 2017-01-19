@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Another</string>
+    <string-array name="white_hash_list">
+        <item>@string/package_hash_another</item>
+    </string-array>
+</resources>

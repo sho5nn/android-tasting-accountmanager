@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data class=".MainBinding">
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="UserInfo"
+            type="com.github.sho5nn.tasting.accountmanager.UserInfoViewModel"
+            />
+
+        <variable
+            name="PermissionsStatus"
+            type="com.github.sho5nn.tasting.accountmanager.PermissionsStatusViewModel"
+            />
+
+        <variable
+            name="AuthenticatorStatus"
+            type="com.github.sho5nn.tasting.accountmanager.AuthenticatorStatusViewModel"
+            />
+    </data>
+
+    <ScrollView
+        android:id="@+id/main_base_scroll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/main_base_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/layout_vertical_margin"
+            android:paddingLeft="@dimen/layout_horizontal_margin"
+            android:paddingRight="@dimen/layout_horizontal_margin"
+            android:paddingTop="@dimen/layout_vertical_margin"
+            tools:context=".MainActivity"
+            >
+
+            <include
+                android:id="@+id/include_permissions_status"
+                layout="@layout/include_permissions_status"
+                bind:PermissionsStatus="@{PermissionsStatus}"
+                />
+
+            <include
+                android:id="@+id/include_user_info"
+                layout="@layout/include_user_info"
+                bind:UserInfo="@{UserInfo}"
+                />
+
+            <include
+                android:id="@+id/include_authenticator_status"
+                layout="@layout/include_authenticator_status"
+                bind:AuthenticatorStatus="@{AuthenticatorStatus}"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
