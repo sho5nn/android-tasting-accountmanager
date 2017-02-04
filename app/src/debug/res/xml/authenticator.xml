@@ -5,4 +5,5 @@
     android:icon="@mipmap/ic_launcher"
     android:label="@string/account_name"
     android:smallIcon="@mipmap/ic_launcher"
+    android:customTokens="true"
     />
