@@ -23,7 +23,6 @@ import com.github.sho5nn.tasting.accountmanager.permission.AppPermissions;
 import com.github.sho5nn.tasting.accountmanager.utils.Utils;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import hugo.weaving.DebugLog;
 import permissions.dispatcher.NeedsPermission;
