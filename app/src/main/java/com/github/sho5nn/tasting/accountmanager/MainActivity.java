@@ -14,6 +14,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.github.sho5nn.tasting.accountmanager.authenticator.LoginAccountProperties;
@@ -21,6 +23,7 @@ import com.github.sho5nn.tasting.accountmanager.permission.AppPermissions;
 import com.github.sho5nn.tasting.accountmanager.utils.Utils;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import hugo.weaving.DebugLog;
 import permissions.dispatcher.NeedsPermission;
@@ -271,5 +274,30 @@ public class MainActivity
                 userInfo.token.set(token);
             }
         }, null);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (R.id.menu_show_all_account == id) {
+            showAllAccount();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    void showAllAccount() {
+        //noinspection MissingPermission
+        Account[] accounts = accountManager.getAccounts();
+        AllAccountListDialogFragment.createInstance(accounts)
+                .show(getSupportFragmentManager(), AllAccountListDialogFragment.TAG);
     }
 }
