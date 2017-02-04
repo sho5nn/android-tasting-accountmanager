@@ -286,13 +286,14 @@ public class MainActivity
         int id = item.getItemId();
 
         if (R.id.menu_show_all_account == id) {
-            showAllAccount();
+            MainActivityPermissionsDispatcher.showAllAccountWithCheck(this);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    @NeedsPermission(AppPermissions.PERMISSION_GET_ACCOUNTS)
     void showAllAccount() {
         //noinspection MissingPermission
         Account[] accounts = accountManager.getAccounts();
