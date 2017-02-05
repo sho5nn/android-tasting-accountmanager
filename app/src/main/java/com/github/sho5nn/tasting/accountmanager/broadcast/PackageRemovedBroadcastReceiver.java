@@ -32,10 +32,10 @@ public class PackageRemovedBroadcastReceiver extends BroadcastReceiver {
 
         if (!Intent.ACTION_PACKAGE_REMOVED.equals(action)) return;
 
-        if (!AppPermissions.checkSelfGetAccountsPermission(context)) return;
-
         Log.d(TAG, "REMOVE_ACCOUNT_WITH_UNINSTALLING_APPLICATION_MODE : " + LoginAccountProperties.REMOVE_ACCOUNT_WITH_UNINSTALLING_APPLICATION_MODE);
         if (!LoginAccountProperties.REMOVE_ACCOUNT_WITH_UNINSTALLING_APPLICATION_MODE) return;
+
+        if (!AppPermissions.checkSelfGetAccountsPermission(context)) return;
 
         AccountManager manager = AccountManager.get(context);
         AuthenticatorDescription[] descriptions = manager.getAuthenticatorTypes();
